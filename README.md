@@ -60,6 +60,26 @@ It is deliberately stateless and framework-agnostic. It runs in Node, the browse
 
 ---
 
+## CI
+
+[![CI](https://github.com/neche-alt/core/actions/workflows/ci.yml/badge.svg)](https://github.com/neche-alt/core/actions/workflows/ci.yml)
+[![Browser Bundle Smoke Test](https://github.com/neche-alt/core/actions/workflows/browser-smoke.yml/badge.svg)](https://github.com/neche-alt/core/actions/workflows/browser-smoke.yml)
+
+### Browser Bundle Smoke Test
+
+Every pull request runs a browser bundle smoke check that builds the SDK and scans `dist/index.js` for accidental Node.js-only imports (`require('fs')`, `require('path')`, `require('crypto')`, etc.). The check fails the PR if any server-only dependency leaks into the browser bundle.
+
+Run it locally after building:
+
+```bash
+npm run build
+node scripts/browser-smoke.mjs
+```
+
+The smoke fixture at `tests/browser-smoke/fixture.ts` imports only from documented public entry points, so it also serves as a living example of which exports are browser-safe.
+
+---
+
 ## Installation
 
 ```bash
