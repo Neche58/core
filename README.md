@@ -60,6 +60,25 @@ It is deliberately stateless and framework-agnostic. It runs in Node, the browse
 
 ---
 
+## CI
+
+[![CI](https://github.com/neche-alt/core/actions/workflows/ci.yml/badge.svg)](https://github.com/neche-alt/core/actions/workflows/ci.yml)
+[![Node.js Matrix](https://github.com/neche-alt/core/actions/workflows/node-matrix.yml/badge.svg)](https://github.com/neche-alt/core/actions/workflows/node-matrix.yml)
+
+### Node.js Compatibility
+
+Supports **Node.js 18, 20, and 22 (LTS)**. The minimum supported version is Node.js 18.
+
+Every pull request runs the full typecheck and test suite on all three versions in parallel so regressions on any supported runtime are caught before merge.
+
+| Node.js | Support |
+|---------|---------|
+| 18 LTS  | ✓ Minimum supported |
+| 20 LTS  | ✓ |
+| 22 LTS  | ✓ Current CI baseline |
+
+---
+
 ## Installation
 
 ```bash
